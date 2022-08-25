@@ -60,7 +60,10 @@ void ArrayInt<T>::set(const int index, T value)
     if (index < 0 || index >= m_length)
         throw bad_range();
     else
-        m_data[index] = T;
+    {
+        m_data[index] = value;
+    }
+        
 }
 template <typename T>
 ArrayInt<T>::ArrayInt(int length)
@@ -137,6 +140,15 @@ void ArrayInt<T>::resize(int newLength)
                 index++;
             }
 
+    }
+    else if (m_length == 0)
+    {
+        int index = 0;
+        while (index < newLength)
+        {
+            data[index] = 0;
+            index++;
+        }
     }
 
     delete[] m_data;

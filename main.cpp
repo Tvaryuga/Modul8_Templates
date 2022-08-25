@@ -101,6 +101,9 @@ int main()
 		array5.erase();
 		cout << "\nArray4 after erase: " << array4 << endl;
 		cout << "\nArray5 after erase: " << array5;
+		array5.resize(4);
+		array5.set(1, 5.4);
+		cout << "\nArray5 after set: " << array5;
 	}
 	catch (bad_length& bl)
 	{
