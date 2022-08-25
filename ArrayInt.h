@@ -37,6 +37,7 @@ public:
     ArrayInt(ArrayInt<T>& copy);
     ~ArrayInt();
     void erase();
+    void set(const int index, T value);
     T& operator[](int index);
     void resize(int newLength);
     void findElement(const int index) const;                      // поиск элемента по индексу
@@ -53,6 +54,14 @@ public:
 };
 
 // ArrayInt methods
+template <typename T>
+void ArrayInt<T>::set(const int index, T value)
+{
+    if (index < 0 || index >= m_length)
+        throw bad_range();
+    else
+        m_data[index] = T;
+}
 template <typename T>
 ArrayInt<T>::ArrayInt(int length)
 {
